@@ -1,0 +1,75 @@
+/* =============================================================================
+   SLNotificationBar Plugin Styles
+   ========================================================================== */
+
+.SLNotificationBar {
+    background:url(../img/shine.png) repeat-x;
+    background-position:top;
+    padding:5px 0px; 
+    margin: 0px;
+    z-index: 1000;
+    width: 100%;
+
+
+}
+.SLNotificationBar p.SLtext{margin: 0px;}
+.SLNotificationBar img {
+    border: 0 none;
+    vertical-align: middle;
+}
+
+.SLNotificationBar .SLhelloinner {
+    display:block;
+    width:1000px;
+    margin:0 auto;
+}
+.SLNotificationBar .SLtext {
+    padding:7px 0;
+    font-weight:900;
+    text-align:center;
+}
+
+.SLNotificationBar .SLtext a {
+    font-weight:500;
+    color:#333;
+    margin:0 10px;
+    padding:5px 10px;
+    background:#F9F9F9;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    box-shadow:0 0 5px #777;
+}
+
+.SLNotificationBar .SLtext a:hover {background:#EEE;color:#111;}
+
+.SLRibbon {
+    padding:3px;
+    display:none;
+    border:3px solid #FFF;
+    box-shadow:0 2px 5px #777;
+    color:#FFF;
+    right:40px;
+    cursor:pointer;
+    border-radius:0 0 3px 3px;
+}
+
+.SLdownarrow {
+    position:absolute;
+    right:55px;
+    top:3px;
+    line-height: 1.7em !important;
+    margin: 8px 0px !important;
+}
+.SLdownarrow p {
+
+}
+
+.SLRibbon:hover {
+    background:#DF5A02 url(../img/shine.png);
+    cursor:pointer;
+}
+
+.SLarrow {
+    cursor:pointer;
+}
