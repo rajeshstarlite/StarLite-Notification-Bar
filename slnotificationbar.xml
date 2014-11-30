@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension  version="1.6" type="plugin" group="system" method="upgrade">
+    <name>System - StarLite Notification Bar</name>
+    <author>StarLite</author>
+    <creationDate>November 05, 2012</creationDate>
+    <copyright>Copyright (C) 2013 www.starliteweb.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <authorEmail>admin@starliteweb.com</authorEmail>
+    <version>1.2</version>
+    <authorUrl>www.starliteweb.com</authorUrl>
+    <description>PLG_SLNB_XML_DESC</description>
+    <files>
+        <filename plugin="slnotificationbar">slnotificationbar.php</filename>
+        <filename>index.html</filename>
+        <folder>slnotificationbar</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB.plg_system_slnotificationbar.ini</language>
+        <language tag="en-GB">en-GB.plg_system_slnotificationbar.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params" addfieldpath="/plugins/system/slnotificationbar/slnotificationbar/elements/">
+            <fieldset name="basic">
+                <field name="" type="header" default="PLG_SLNB_COMMON_PARAMETERS" label="" description=""></field>
+                <field name="display_position" type="list" default="top" label="PLG_SLNB_DISPLAY_LABEL"
+                       description="PLG_SLNB_DISPLAY_DESC">
+                    <option value="top">PLG_SLNB_TOP</option>
+                    <option value="bottom">PLG_SLNB_BOTTOM</option>
+                </field>
+                <field name="textcolor" type="color" default="#DB5903" cellwidth="7" cellheight="10"
+                       top="20" left="-30" label="PLG_SLNB_COLOR_LABEL" description="PLG_SLNB_COLOR_DESC"></field>
+                <field name="backgroundcolor" type="color" default="#FFFFFF" cellwidth="7" cellheight="10" top="20"
+                       left="-30" label="PLG_SLNB_BACKGROUND_LABEL" description="PLG_SLNB_BACKGROUND_DESC"></field>
+
+                <field name="fontsize" type="text" default="12" label="PLG_SLNB_FONTSIZE_LABEL"
+                       description="PLG_SLNB_FONTSIZE_DESC"></field>
+
+                <field name="notificationmessage" type="textarea" cols="40" rows="5" default="" filter="raw"
+                       label="PLG_SLNB_NOTIFICATION_MESSAGE_LABEL"
+                       description="PLG_SLNB_NOTIFICATION_MESSAGE_DESC" />
+
+                <field name="showinmenu_items" type="menuitem" multiple="true" size="4"
+                       label="PLG_SLNB_NOTIFICATION_MENUITEM_LABEL"
+                       description="PLG_SLNB_NOTIFICATION_MENUITEM_DESC" />
+
+
+                <field name="" type="header" default="PLG_SLNB_JQUERY_PARAMETERS" label="" description=""></field>
+                <field name="include_jquery" type="radio" default="1" label="PLG_SLNB_INCLUDE_JQUERY_LABEL"
+                       description="PLG_SLNB_INCLUDE_JQUERY_DESC">
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
+                </field>
+                <field name="include_jquery_ui" type="radio" default="1" label="PLG_SLNB_INCLUDE_JQUERY_UI_LABEL"
+                       description="PLG_SLNB_INCLUDE_JQUERY_UI_DESC">
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
+                </field>
+                <field name="jquery_conflict" type="radio" default="1" label="PLG_SLNB_JQUERY_NOCONFLICT_LABEL"
+                       description="PLG_SLNB_JQUERY_NOCONFLICT_DESC">
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
