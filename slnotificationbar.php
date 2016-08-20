@@ -1,8 +1,7 @@
 <?php
 /**
- * @version        $Id: plg_system_notificationbar.php 2013-07-11 StarLite $
  * @package        StarLite Notification Bar
- * @copyright      Copyright (C) 2013 starliteweb.com All rights reserved.
+ * @copyright      Copyright (C) 2013 - 2016 starliteweb.com All rights reserved.
  * @license        http://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -16,7 +15,7 @@ class  plgSystemSlNotificationBar extends JPlugin
 {
     var $pluginLivePath;
 
-    function plgSystemSlNotificationBar(& $subject, $config)
+    function plgSystemSlNotificationBar( $subject, $config)
     {
         parent::__construct($subject, $config);
 

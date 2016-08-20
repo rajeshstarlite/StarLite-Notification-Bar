@@ -1,8 +1,7 @@
 <?php
 /**
- * @version        $Id: header.php 2013-07-11 StarLite $
  * @package        StarLite Notification Bar
- * @copyright      Copyright (C) 2013 starliteweb.com All rights reserved.
+ * @copyright      Copyright (C) 2013 - 2016 starliteweb.com All rights reserved.
  * @license        http://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -17,7 +16,7 @@ if(version_compare(JVERSION,'1.6.0','ge')) {
 
 		function getInput(){
 
-            $document = & JFactory::getDocument();
+            $document = JFactory::getDocument();
             $document->addStyleDeclaration('
 			.SLHeaderClr { clear:both; height:0; line-height:0; border:none; float:none; background:none; padding:0; margin:0; }
 			.SLHeaderContainer,.SLHeaderContainer15 { clear:both; font-weight:bold; font-size:12px; color:#fff; margin:12px 0 4px; padding:0; background:#333333; float:left; width:100%; }
