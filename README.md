@@ -25,5 +25,5 @@ Contribution
 Copyright and Licence
 =====================
 
-* Copyright (c) 2012-2014 starliteweb.com all rights reserved. 
+* Copyright (c) 2013-2016 starliteweb.com all rights reserved. 
 * Licence: http://www.gnu.org/licenses/gpl-2.0.html
