@@ -1,7 +1,7 @@
 <?php
 /**
  * @package        StarLite Notification Bar
- * @copyright      Copyright (C) 2013 - 2016 starliteweb.com All rights reserved.
+ * @copyright      Copyright (C) 2012 - 2016 starliteweb.com All rights reserved.
  * @license        http://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -19,12 +19,8 @@ class  plgSystemSlNotificationBar extends JPlugin
     {
         parent::__construct($subject, $config);
 
+        $this->pluginLivePath = JURI::root(true) . "/plugins/system/slnotificationbar/slnotificationbar";
 
-        if (version_compare(JVERSION, '1.6.0', 'ge')) {
-            $this->pluginLivePath = JURI::root(true) . "/plugins/system/slnotificationbar/slnotificationbar";
-        } else {
-            $this->pluginLivePath = JURI::root(true) . "/plugins/system/slnotificationbar";
-        }
     }
 
 
@@ -33,27 +29,17 @@ class  plgSystemSlNotificationBar extends JPlugin
 
         if ($app->isAdmin()) return;
 
-        //Added support to show slnotificationbar based on menu items for joomla version more than 1.6
-        if (version_compare(JVERSION, '1.6.0', 'ge')) {
-            $showinmenu_items = $this->params->get('showinmenu_items',array());
 
-            $Itemid = JRequest::getVar('Itemid');
-            if(!in_array($Itemid,$showinmenu_items)){
-                return;
-            }
+        $showinmenu_items = $this->params->get('showinmenu_items',array());
+
+        $Itemid = JRequest::getVar('Itemid');
+        if(!in_array($Itemid,$showinmenu_items)){
+            return;
         }
+
+        JHtml::_('jquery.framework');
 
         $doc = JFactory::getDocument();
-
-        $include_jquery = $this->params->get('include_jquery', 1);
-        if ($include_jquery) {
-            $doc->addScript($this->pluginLivePath . "/js/jquery-1.8.2.min.js");
-        }
-
-        $include_jquery_ui = $this->params->get('include_jquery_ui',1);
-        if ($include_jquery_ui) {
-            $doc->addScript($this->pluginLivePath . "/js/jquery-ui-1.8.24.min.js");
-        }
 
         $doc->addStyleSheet($this->pluginLivePath . "/css/bar.css");
 
@@ -120,37 +106,18 @@ class  plgSystemSlNotificationBar extends JPlugin
         //bug of previous version
         $replacement = preg_replace('!\s+!smi', ' ', addslashes($replacement));
 		
-        $noConflict = $this->params->get('jquery_conflict', 1);
 
-        if ($noConflict) {
-            $slconfig = "jQuery.noConflict();
-                          jQuery(document).ready(function() {
-                          jQuery('body').prepend('".$replacement."');
-                            jQuery('.SLRibbon').delay(1000).fadeIn(400).addClass('SLup', 600);
-                            jQuery('.SLNotificationBar').hide().delay(2500).slideDown(300);
-                            jQuery('.SLTrigger').click(function(){
-                            jQuery('.SLRibbon').toggleClass('SLup', 300);
-                            jQuery('.SLNotificationBar').slideToggle();
-                            });
-			              });";
-        } else {
-            $slconfig = "$(document).ready(function() {
-                            $('body').prepend('".$replacement."');
-                            $('.SLRibbon').delay(1000).fadeIn(400).addClass('SLup', 600);
-                            $('.SLNotificationBar').hide().delay(2500).slideDown(300);
-                            $('.SLTrigger').click(function(){
-                            $('.SLRibbon').toggleClass('SLup', 300);
-                            $('.SLNotificationBar').slideToggle();
-                            });
-	                      });";
-        }
+        $slconfig = "jQuery(document).ready(function() {
+                      jQuery('body').prepend('".$replacement."');
+                        jQuery('.SLRibbon').delay(1000).fadeIn(400).addClass('SLup', 600);
+                        jQuery('.SLNotificationBar').hide().delay(2500).slideDown(300);
+                        jQuery('.SLTrigger').click(function(){
+                        jQuery('.SLRibbon').toggleClass('SLup', 300);
+                        jQuery('.SLNotificationBar').slideToggle();
+                        });
+                      });";
 
         $doc->addScriptDeclaration($slconfig);
-
-    }
-
-    function onAfterRender()
-    {
 
     }
 

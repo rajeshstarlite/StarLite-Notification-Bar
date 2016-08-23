@@ -3,7 +3,7 @@
     <name>System - StarLite Notification Bar</name>
     <author>StarLite</author>
     <creationDate>November 05, 2012</creationDate>
-    <copyright>Copyright (C) 2013 - 2016 www.starliteweb.com All rights reserved.</copyright>
+    <copyright>Copyright (C) 2012 - 2016 www.starliteweb.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html</license>
     <authorEmail>admin@starliteweb.com</authorEmail>
     <version>1.3</version>
@@ -22,7 +22,6 @@
     <config>
         <fields name="params" addfieldpath="/plugins/system/slnotificationbar/slnotificationbar/elements/">
             <fieldset name="basic">
-                <field name="" type="header" default="PLG_SLNB_COMMON_PARAMETERS" label="" description=""></field>
                 <field name="display_position" type="list" default="top" label="PLG_SLNB_DISPLAY_LABEL"
                        description="PLG_SLNB_DISPLAY_DESC">
                     <option value="top">PLG_SLNB_TOP</option>
@@ -45,22 +44,7 @@
                        description="PLG_SLNB_NOTIFICATION_MENUITEM_DESC" />
 
 
-                <field name="" type="header" default="PLG_SLNB_JQUERY_PARAMETERS" label="" description=""></field>
-                <field name="include_jquery" type="radio" default="1" label="PLG_SLNB_INCLUDE_JQUERY_LABEL"
-                       description="PLG_SLNB_INCLUDE_JQUERY_DESC">
-                    <option value="1">YES</option>
-                    <option value="0">NO</option>
-                </field>
-                <field name="include_jquery_ui" type="radio" default="1" label="PLG_SLNB_INCLUDE_JQUERY_UI_LABEL"
-                       description="PLG_SLNB_INCLUDE_JQUERY_UI_DESC">
-                    <option value="1">YES</option>
-                    <option value="0">NO</option>
-                </field>
-                <field name="jquery_conflict" type="radio" default="1" label="PLG_SLNB_JQUERY_NOCONFLICT_LABEL"
-                       description="PLG_SLNB_JQUERY_NOCONFLICT_DESC">
-                    <option value="1">YES</option>
-                    <option value="0">NO</option>
-                </field>
+
             </fieldset>
         </fields>
     </config>

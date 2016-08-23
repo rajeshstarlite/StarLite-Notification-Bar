@@ -1,7 +1,7 @@
 <?php
 /**
  * @package        StarLite Notification Bar
- * @copyright      Copyright (C) 2013 - 2016 starliteweb.com All rights reserved.
+ * @copyright      Copyright (C) 2012 - 2016 starliteweb.com All rights reserved.
  * @license        http://www.gnu.org/licenses/gpl-2.0.html
  */
 
