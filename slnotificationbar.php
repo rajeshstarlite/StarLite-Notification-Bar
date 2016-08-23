@@ -72,8 +72,10 @@ class  plgSystemSlNotificationBar extends JPlugin
 
         if($display_position=='top'){
             $SLstyle .= '.SLNotificationBar {
-                        border-bottom:3px solid #FFF;
-                        position:relative;
+                        border-bottom:none;
+                        position:fixed;
+                        left:0;
+                        top:0;
                         }
                         .SLRibbon {
                         position:absolute;
@@ -89,6 +91,7 @@ class  plgSystemSlNotificationBar extends JPlugin
                         border-top:3px solid #FFF;
                         position:fixed;
 	                    bottom:0;
+	                    left:0;
 	                    }
                         .SLRibbon {
                         position:fixed;
