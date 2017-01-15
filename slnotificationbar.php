@@ -1,7 +1,7 @@
 <?php
 /**
  * @package        StarLite Notification Bar
- * @copyright      Copyright (C) 2012 - 2016 starliteweb.com All rights reserved.
+ * @copyright      Copyright (C) 2012 - 2017 starliteweb.com All rights reserved.
  * @license        http://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -32,7 +32,7 @@ class  plgSystemSlNotificationBar extends JPlugin
 
         $showinmenu_items = $this->params->get('showinmenu_items',array());
 
-        $Itemid = JRequest::getVar('Itemid');
+        $Itemid = JFactory::getApplication()->input->get('Itemid');
         if(!in_array($Itemid,$showinmenu_items)){
             return;
         }
@@ -105,17 +105,55 @@ class  plgSystemSlNotificationBar extends JPlugin
 		//replacement of white spaces in HTML
         //bug of previous version
         $replacement = preg_replace('!\s+!smi', ' ', addslashes($replacement));
-		
 
-        $slconfig = "jQuery(document).ready(function() {
+        $slconfig = "
+                     var slcookie = SLgetCookie(\"slcookie\");
+                     if (slcookie == \"\") {
+                        SLsetCookie('slcookie', 'open');
+                     } 
+                     function SLsetCookie(cname, cvalue) {
+                        var d = new Date();
+                        var exdays = 30;
+                        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                        var expires = \"expires=\"+d.toUTCString();
+                        document.cookie = cname + \"=\" + cvalue + \"; \" + expires+\";path=/\";
+                    }
+                    function SLgetCookie(cname) {
+                        var name = cname + \"=\";
+                        var ca = document.cookie.split(';');
+                        for(var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') {
+                                c = c.substring(1);
+                            }
+                            if (c.indexOf(name) == 0) {
+                                return c.substring(name.length, c.length);
+                            }
+                        }
+                        return \"\";
+                    }
+                    jQuery(document).ready(function() {
                       jQuery('body').prepend('".$replacement."');
-                        jQuery('.SLRibbon').delay(1000).fadeIn(400).addClass('SLup', 600);
-                        jQuery('.SLNotificationBar').hide().delay(2500).slideDown(300);
+                        var getslcookie = SLgetCookie('slcookie');
+                        if(getslcookie=='open'){
+                            jQuery('.SLRibbon').delay(1000).fadeIn(400).addClass('SLup', 600);
+                            jQuery('.SLNotificationBar').hide().delay(2500).slideDown(300);
+                        }else{
+                            jQuery('.SLNotificationBar').hide();
+                            jQuery('.SLRibbon').delay(1000).fadeIn(400);
+                        }
                         jQuery('.SLTrigger').click(function(){
-                        jQuery('.SLRibbon').toggleClass('SLup', 300);
-                        jQuery('.SLNotificationBar').slideToggle();
+                            jQuery('.SLRibbon').toggleClass('SLup', 300);
+                            jQuery('.SLNotificationBar').slideToggle(400,'',function(){ 
+                                var getslcookie = SLgetCookie('slcookie');
+                                if(getslcookie=='open'){ 
+                                    var setslcookie = 'close';
+                                }else{
+                                    var setslcookie = 'open';
+                                }
+                        SLsetCookie('slcookie', setslcookie);});
                         });
-                      });";
+                    });";
 
         $doc->addScriptDeclaration($slconfig);
 
