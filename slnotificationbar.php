@@ -15,11 +15,11 @@ class  plgSystemSlNotificationBar extends JPlugin
 {
     var $pluginLivePath;
 
-    function plgSystemSlNotificationBar( $subject, $config)
+    function __construct( $subject, $config)
     {
         parent::__construct($subject, $config);
 
-        $this->pluginLivePath = JURI::root(true) . "/plugins/system/slnotificationbar/slnotificationbar";
+        $this->pluginLivePath = JURI::root(true) . "/plugins/system/slnotificationbar";
 
     }
 
@@ -41,7 +41,7 @@ class  plgSystemSlNotificationBar extends JPlugin
 
         $doc = JFactory::getDocument();
 
-        $doc->addStyleSheet($this->pluginLivePath . "/css/bar.css");
+        $doc->addStyleSheet($this->pluginLivePath . "/assets/css/bar.css");
 
         $display_position = $this->params->get('display_position', 'top');
 
@@ -53,7 +53,7 @@ class  plgSystemSlNotificationBar extends JPlugin
                     .SLRibbon {
                      background:'.$this->params->get('backgroundcolor', '#DB5903').' ;
                     }.SLRibbon:hover {
-                     background:'.$this->params->get('backgroundcolor', '#DB5903'). ' url('.$this->pluginLivePath.'/img/shine.png) ;
+                     background:'.$this->params->get('backgroundcolor', '#DB5903'). ' url('.$this->pluginLivePath.'/assets/img/shine.png) ;
                     }';
 
         if($display_position=='top'){
@@ -96,11 +96,11 @@ class  plgSystemSlNotificationBar extends JPlugin
         $replacement .= '<span class="SLhelloinner">';
         $replacement .= '<p class="SLtext">'.$this->params->get('notificationmessage').'</p>';
         $replacement .= '<p class="SLTrigger SLdownarrow">';
-        $replacement .= '<img src="' . $this->pluginLivePath . '/img/arrow-up.png" class="SLarrow" alt="Arrow Up"/>';
+        $replacement .= '<img src="' . $this->pluginLivePath . '/assets/img/arrow-up.png" class="SLarrow" alt="Arrow Up"/>';
         $replacement .= '</p>';
         $replacement .= '</span>';
         $replacement .= '</div>';
-        $replacement .= '<span class="SLRibbon SLTrigger"><img src="' . $this->pluginLivePath . '/img/arrow-down.png" class="SLarrow" alt="Arrow Down"></span>';
+        $replacement .= '<span class="SLRibbon SLTrigger"><img src="' . $this->pluginLivePath . '/assets/img/arrow-down.png" class="SLarrow" alt="Arrow Down"></span>';
 
 		//replacement of white spaces in HTML
         //bug of previous version

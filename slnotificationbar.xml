@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension  version="1.6" type="plugin" group="system" method="upgrade">
+<extension  version="3.1" type="plugin" group="system" method="upgrade">
     <name>System - StarLite Notification Bar</name>
     <author>StarLite</author>
     <creationDate>November 05, 2012</creationDate>
     <copyright>Copyright (C) 2012 - 2017 www.starliteweb.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html</license>
     <authorEmail>rajesh.starlite@gmail.com</authorEmail>
-    <version>1.4</version>
+    <version>1.5</version>
     <authorUrl>www.starliteweb.com</authorUrl>
     <description>PLG_SLNB_XML_DESC</description>
     <files>
         <filename plugin="slnotificationbar">slnotificationbar.php</filename>
         <filename>index.html</filename>
-        <folder>slnotificationbar</folder>
+        <folder>assets</folder>
+        <folder>language</folder>
     </files>
-    <languages folder="language">
-        <language tag="en-GB">en-GB.plg_system_slnotificationbar.ini</language>
-        <language tag="en-GB">en-GB.plg_system_slnotificationbar.sys.ini</language>
-    </languages>
     <updateservers>
         <!-- Note: No spaces or linebreaks allowed between the server tags -->
-        <server type="extension" name="StarLite Notification Bar's updates">http://starliteweb.com/update.xml</server>
+        <server type="extension" name="StarLite Notification Bar's updates">http://www.starliteweb.com/update.xml</server>
     </updateservers>
     <config>
-        <fields name="params" addfieldpath="/plugins/system/slnotificationbar/slnotificationbar/elements/">
+        <fields name="params">
             <fieldset name="basic">
                 <field name="display_position" type="list" default="top" label="PLG_SLNB_DISPLAY_LABEL"
                        description="PLG_SLNB_DISPLAY_DESC">
