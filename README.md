@@ -3,7 +3,7 @@ StarLite Notification Bar
 
 StarLite Notification Bar is joomla plugin that can be used to direct your site’s visitors and promote your website’s most important content like notification, promo, event or anything related on the header of a website. Setup is very easy, You can set text-color, background-color of the bar, You can show HTML content in the bar.
 
-Master and J3.x branches support ONLY Joomla 3.x versions.
+Now, the plugin only supports Joomla 3.x versions.
 
 * Documentation: http://www.starliteweb.com/extensions/starlite-notification-bar/documentation/
 * Demo: http://www.starliteweb.com/demo/demos/starlite-notification-bar-demo.html
@@ -25,5 +25,5 @@ Contribution
 Copyright and Licence
 =====================
 
-* Copyright (c) 2012-2016 starliteweb.com all rights reserved.
+* Copyright (c) 2012-2017 starliteweb.com all rights reserved.
 * Licence: http://www.gnu.org/licenses/gpl-2.0.html
